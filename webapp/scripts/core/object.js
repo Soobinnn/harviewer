@@ -80,6 +80,7 @@ Obj.bindFixed = function() // fn, thisObject, args => thisObject.fn(args);
     var args = Arr.cloneArray(arguments);
     var fn = args.shift();
     var object = args.shift();
+    console.log("bindFixed",args, fn, object);
     return function bindFixed() {
         return fn.apply(object, args);
     };

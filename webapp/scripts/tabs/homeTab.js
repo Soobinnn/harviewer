@@ -44,6 +44,7 @@ HomeTab.prototype = Lib.extend(TabView.Tab.prototype,
         body.innerHTML = HomeTabHtml.replace("@HAR_SPEC_URL@", tabView.harSpecURL, "g");
 
         // Register click handlers.
+        console.log("[Click]",tabView,body);
         $("#appendPreview").click(Lib.bindFixed(this.onAppendPreview, this));
         $(".linkAbout").click(Lib.bind(this.onAbout, this));
 
@@ -69,9 +70,11 @@ HomeTab.prototype = Lib.extend(TabView.Tab.prototype,
     // Events
 
     onAppendPreview: function(jsonString)
-    {
+    {   
+        console.log("[onAppendPreview]",jsonString);
         if (!jsonString)
             jsonString = $("#sourceEditor").val();
+            console.log(jsonString);
 
         if (jsonString)
             this.tabView.appendPreview(jsonString);
